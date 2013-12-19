@@ -3,19 +3,19 @@ TARGET=test
 include ../config.mk
 
 cppsocketstest:
-	cd $(SRCDIR)/test/cppsockets-test && make
+	cd $(SRCDIR)/test/cppsockets-test && $(MAKE)
 
 datastoragetest:
-	cd $(SRCDIR)/test/datastorage-test && make
+	cd $(SRCDIR)/test/datastorage-test && $(MAKE)
 
 spidertest:
-	cd $(SRCDIR)/test/spider-test && make
+	cd $(SRCDIR)/test/spider-test && $(MAKE)
 
 serverqueuetest:
-	cd $(SRCDIR)/test/serverqueue-test && make
+	cd $(SRCDIR)/test/serverqueue-test && $(MAKE)
 
 fulltest:
-	cd $(SRCDIR)/test/full-test && make
+	cd $(SRCDIR)/test/full-test && $(MAKE)
 
 test: cppsocketstest datastoragetest spidertest serverqueuetest fulltest
 

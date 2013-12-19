@@ -3,19 +3,19 @@ TARGET:=u-search
 include config.mk
 
 libcppsockets:
-	cd $(SRCDIR)/cppsockets && make
+	+cd $(SRCDIR)/cppsockets && $(MAKE)
 
 spider: copyfiles libdata_storage
-	cd $(SRCDIR)/spider && make
+	+cd $(SRCDIR)/spider && $(MAKE)
 
 scheduler:
-	cd $(SRCDIR)/scheduler && make
+	+cd $(SRCDIR)/scheduler && $(MAKE)
 
 libdata_storage:
-	cd $(SRCDIR)/data-storage && make
+	+cd $(SRCDIR)/data-storage && $(MAKE)
 
 test: libcppsockets libdata_storage spider scheduler
-	cd $(SRCDIR)/test && make
+	+cd $(SRCDIR)/test && $(MAKE)
 
 copyfiles: database.dat.example servers.dat.example
 	mkdir -p $(DESTDIR)/etc/u-search
@@ -25,7 +25,7 @@ copyfiles: database.dat.example servers.dat.example
 $(TARGET): test doc
 
 doc:
-	cd $(SRCDIR)/doc && make
+	cd $(SRCDIR)/doc && $(MAKE)
 
 help:
 	@echo Available modules: libcppsockets spider spider libdata_storage test copygiles doc
