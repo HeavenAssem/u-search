@@ -6,8 +6,14 @@ include ../config.mk
 
 .SUFFIXES: .cpp .o
 
-.cpp.o:
-	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c -o $@ $<
+main.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c main.cpp
+
+schedulerserver.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c schedulerserver.cpp schedulerserver.h
+
+serverqueue.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c serverqueue.cpp  serverqueue.h
 
 $(TARGET): $(OBJECTS)
 	mkdir -p $(DESTDIR)/bin

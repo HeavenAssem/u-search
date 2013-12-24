@@ -19,8 +19,23 @@ include ../config.mk
 
 .SUFFIXES: .cpp .o
 
-.cpp.o:
-	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c -o $@ $<
+socketaddress.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c socketaddress.cpp  socketaddress.h
+
+abstractsocket.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c abstractsocket.cpp  abstractsocket.h
+
+datasocket.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c datasocket.cpp  datasocket.h
+
+tcplistener.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c tcplistener.cpp  tcplistener.h
+
+tcpsocket.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c tcpsocket.cpp  tcpsocket.h
+
+udpsocket.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c udpsocket.cpp  udpsocket.h
 
 $(TARGET): $(OBJECTS)
 	mkdir -p $(DESTDIR)/lib

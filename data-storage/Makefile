@@ -9,8 +9,8 @@ LIBS+=-lmysqlclient -lmysqlpp
 
 .SUFFIXES: .cpp .o
 
-.cpp.o:
-	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c -o $@ $<
+entities.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c entities.cpp entities.h
 
 $(TARGET): $(OBJECTS)
 	mkdir -p $(DESTDIR)/lib

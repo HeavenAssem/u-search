@@ -10,8 +10,14 @@ LIBS+=-lsmbclient -lmysqlpp -lmysqlclient -ldata_storage -lmagic
 
 .SUFFIXES: .cpp .o
 
-.cpp.o:
-	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c -o $@ $<
+main.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c main.cpp
+
+spider.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c spider.cpp spider.h
+
+servermanager.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(DEFINES) -fPIC -c servermanager.cpp servermanager.h
 
 $(TARGET): $(OBJECTS)
 	mkdir -p $(DESTDIR)/bin
